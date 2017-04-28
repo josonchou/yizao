@@ -9,7 +9,7 @@ import routes, { options } from '../Routes';
 import { Drawer } from 'native-base';
 import { Content, ListItem, Text } from 'native-base';
 import { closeDrawer } from '../actions/Drawer';
-import SideBar from './sidebar';
+import Sidebar from './layouts/Sidebar';
 
 export const AppStackNavigator = StackNavigator(routes, options);
 
@@ -25,6 +25,7 @@ class StackNavigatorWithState extends Component {
     )
   }
 }
+
 const AppStackNavigatorWithState = connect(state => ({nav: state.nav}))(StackNavigatorWithState);
 
 class AppNavigator extends Component {
@@ -63,7 +64,7 @@ class AppNavigator extends Component {
         type="overlay"
         tweenDuration={150}
         content={
-          <SideBar/>
+          <Sidebar/>
         }
         tapToClose
         acceptPan={false}

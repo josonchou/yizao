@@ -7,6 +7,7 @@ import { Platform } from 'react-native';
 import LoginScreen from './components/auth/LoginScreen';
 import MainScreen from './components/MainScreen';
 import OrderManagerScreen from './components/order/OrderManagerScreen';
+import AddressManagerScreen from './components/address/AddressManagerScreen';
 
 import CustomPack from './components/home/CustomPack';
 import WeekPack from './components/home/WeekPack';
@@ -15,6 +16,7 @@ export default {
   Login: { screen: LoginScreen },
   Main: { screen: MainScreen },
   OrderManager: { screen: OrderManagerScreen },
+  AddressManager: { screen: AddressManagerScreen }
 }
 
 //   Login: {screen: LoginScreen},

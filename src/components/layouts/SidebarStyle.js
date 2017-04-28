@@ -1,12 +1,8 @@
 /**
- * Copyright(c) omk 2016
- * Filename:
- * Author  : alixez
+ * Created by alixez on 17-4-27.
  */
 
-const React = require('react-native');
-
-const { StyleSheet, Dimensions } = React;
+import {StyleSheet, Dimensions} from 'react-native';
 
 const deviceHeight = Dimensions.get('window').height;
 
@@ -17,7 +13,7 @@ export default {
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#FBFAFA',
+    backgroundColor: '#202020',
   },
   shadow: {
     flex: 1,
@@ -40,4 +36,9 @@ export default {
     marginTop: 20,
     alignSelf: 'center',
   },
+  list: {
+    '.ListItem': {
+      color: '#ffffff',
+    }
+  }
 };

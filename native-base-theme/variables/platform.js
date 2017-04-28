@@ -40,10 +40,10 @@ export default {
   checkboxTickColor: '#fff',
 
   // Segment
-  segmentBackgroundColor: (platform === 'ios') ? '#F8F8F8' : '#3F51B5',
+  segmentBackgroundColor: (platform === 'ios') ? '#202020' : '#202020',
   segmentActiveBackgroundColor: (platform === 'ios') ? '#007aff' : '#fff',
-  segmentTextColor: (platform === 'ios') ? '#007aff' : '#fff',
-  segmentActiveTextColor: (platform === 'ios') ? '#fff' : '#3F51B5',
+  segmentTextColor: (platform === 'ios') ? '#ffffff' : '#ffffff',
+  segmentActiveTextColor: (platform === 'ios') ? '#202020' : '#202020',
   segmentBorderColor: (platform === 'ios') ? '#007aff' : '#fff',
   segmentBorderColorMain: (platform === 'ios') ? '#a7a6ab' : '#3F51B5',
 

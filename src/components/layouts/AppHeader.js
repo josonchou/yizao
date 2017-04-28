@@ -8,18 +8,8 @@ import { Header, Left, Body, Segment, Button, Text, Right, Icon} from 'native-ba
 import { connect } from 'react-redux';
 import { openDrawer } from '../../actions/Drawer';
 
-const styles = {
-  segmentFirst: {
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
-    borderRightWidth: 2,
-  },
-  segmentLast: {
-    borderTopRightRadius: 10,
-    borderBottomRightRadius: 10,
-    borderRightWidth: 2,
-  }
-};
+import styles from './HeaderStyle';
+
 
 class AppHeader extends Component {
 
@@ -28,18 +18,35 @@ class AppHeader extends Component {
     navigation: PropTypes.object,
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      activeSegment: 'Custom'
+    }
+  }
+
+  _handleCustomBtnPress() {
+    this.props.navigation.navigate('Custom');
+    this.setState({activeSegment: 'Custom'});
+  }
+
+  _handlePackBtnPress() {
+    this.props.navigation.navigate('Pack');
+    this.setState({activeSegment: 'Pack'});
+  }
+
   render() {
     return (
-      <Header>
+      <Header style={styles.container}>
         <Left>
           <Button transparent onPress={() => {this.props.openDrawer(); console.log('open drawer')}}><Icon name="menu"/></Button>
         </Left>
         <Body>
         <Segment>
-          <Button first active style={styles.segmentFirst} onPress={() => this.props.navigation.navigate('Custom')}>
+          <Button first active={this.state.activeSegment === 'Custom'} style={styles.segmentFirst} onPress={() => this._handleCustomBtnPress()}>
             <Text>自选</Text>
           </Button>
-          <Button last style={styles.segmentLast} onPress={() => this.props.navigation.navigate('Pack')}>
+          <Button last active={this.state.activeSegment === 'Pack'} style={styles.segmentLast} onPress={() => this._handlePackBtnPress()}>
             <Text>套餐</Text>
           </Button>
         </Segment>
