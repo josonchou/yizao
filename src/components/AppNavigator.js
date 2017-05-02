@@ -2,7 +2,7 @@
  * Created by alixez on 17-4-22.
  */
 import React, { PropTypes, Component } from 'react';
-import { Platform } from 'react-native';
+import { Platform, StatusBar } from 'react-native';
 import {connect} from 'react-redux';
 import {addNavigationHelpers, StackNavigator} from 'react-navigation';
 import routes, { options } from '../Routes';
@@ -10,7 +10,10 @@ import { Drawer } from 'native-base';
 import { Content, ListItem, Text } from 'native-base';
 import { closeDrawer } from '../actions/Drawer';
 import Sidebar from './layouts/Sidebar';
-
+import color from 'color';
+const statusBarColor = () => {
+  return color('#202020').darken(0.2).hexString();
+};
 export const AppStackNavigator = StackNavigator(routes, options);
 
 class StackNavigatorWithState extends Component {
@@ -61,7 +64,7 @@ class AppNavigator extends Component {
     return (
       <Drawer
         ref={ref => { this._drawer = ref; }}
-        type="overlay"
+        type="static"
         tweenDuration={150}
         content={
           <Sidebar/>
@@ -80,8 +83,11 @@ class AppNavigator extends Component {
           },
         }}
         tweenHandler={(ratio) => {  //eslint-disable-line
+
           return {
-            drawer: { shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5 },
+            drawer: {
+              shadowRadius: ratio < 0.2 ? ratio * 5 * 5 : 5
+            },
             main: {
               opacity: (2 - ratio) / 2,
             },
@@ -89,6 +95,10 @@ class AppNavigator extends Component {
         }}
         negotiatePan
       >
+        <StatusBar
+          backgroundColor={statusBarColor()}
+          barStyle="light-content"
+        />
         <AppStackNavigatorWithState/>
       </Drawer>
     )

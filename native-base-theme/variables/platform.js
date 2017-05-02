@@ -170,7 +170,7 @@ export default {
   toolbarDefaultBorder: (platform === 'ios') ? '#a7a6ab' : '#3F51B5',
   iosStatusbar: (platform === 'ios') ? 'dark-content' : 'light-content',
   get statusBarColor() {
-    return color(this.toolbarDefaultBg).darken(0.2).hexString();
+    return color('#202020').darken(0.2).hexString();
   },
 
 

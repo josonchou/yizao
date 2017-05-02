@@ -34,7 +34,7 @@ class StackHeader extends Component {
           <Button transparent onPress={() => this.props.back()}><Icon name="arrow-back"/></Button>
         </Left>
         <Body>
-          <Text>{ this.props.title }</Text>
+          <Text style={{color: '#ffffff'}}>{ this.props.title }</Text>
         </Body>
         <Right/>
       </Header>

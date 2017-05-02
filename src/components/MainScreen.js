@@ -4,6 +4,7 @@
  * Author  : alixez
  */
 import React, { Component } from 'react';
+import { StatusBar } from 'react-native';
 import {
   Container, Content, StyleProvider
 } from 'native-base';
@@ -44,6 +45,7 @@ class SegmentTabWithMainView extends Component {
     };
     return (
       <Container>
+
         <AppHeader navigation={this.props.navigation}/>
         <ActiveScreen navigation={addNavigationHelpers(helper)} />
         <AppFooter/>
@@ -73,7 +75,7 @@ class MainScreen extends Component {
   componentWillMount() {
     if (!this.props.isLoggedIn) {
       console.debug('not login');
-      this.props.navigation.dispatch({type: ROUTE.LOGOUT})
+      //this.props.navigation.dispatch({type: ROUTE.LOGOUT})
       //this.props.toLogin();
     }
   }

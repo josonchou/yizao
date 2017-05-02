@@ -5,6 +5,7 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
 const deviceHeight = Dimensions.get('window').height;
+const deviceWeight = Dimensions.get('window').width;
 
 export default {
   container: {
@@ -13,12 +14,19 @@ export default {
     bottom: 0,
     left: 0,
     right: 0,
-    backgroundColor: '#202020',
+    backgroundColor: '#f3f1f0',
   },
   shadow: {
     flex: 1,
     width: null,
     height: null,
+  },
+  header: {
+    flex: 1,
+    padding: 20,
+    width: deviceWeight * 0.8,
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
   bg: {
     flex: 1,
@@ -38,7 +46,7 @@ export default {
   },
   list: {
     '.ListItem': {
-      color: '#ffffff',
+      color: '#f3f1f0',
     }
   }
 };

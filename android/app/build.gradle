@@ -96,6 +96,7 @@ android {
             abiFilters "armeabi-v7a", "x86"
         }
     }
+
     splits {
         abi {
             reset()
@@ -104,8 +105,19 @@ android {
             include "armeabi-v7a", "x86"
         }
     }
+
+    signingConfigs {
+            release {
+                storeFile file('yizao.keystore')
+                storePassword 'aini1bzshun'
+                keyAlias 'my-key-alias'
+                keyPassword 'aini1bzshun'
+            }
+        }
+
     buildTypes {
         release {
+            signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
